@@ -58,7 +58,7 @@ Things you may want to cover:
 ## association
 - belongs_to :user
 - belongs_to :comments
-- has_one :buy_markets
+- has_one :buy_market
 
 ## comments テーブル
 
