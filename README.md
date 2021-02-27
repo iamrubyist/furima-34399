@@ -27,7 +27,7 @@ Things you may want to cover:
 ## users テーブル
 
 | Column             | Type   | Options     |
-| --------           | ------ | ----------- |
+| ------------------ | ------ | ----------- |
 | name               | string | null: false |
 | nick_name          | string | null: false |
 | last_name          | string | null: false |
@@ -44,25 +44,26 @@ Things you may want to cover:
 
 ## markets　テーブル
 
-| Column         | Type         | Options     |
-| -------------- | ------       | ----------- |
+| Column         | Type         | Options                      |
+| -------------- | ------------ | ---------------------------- |
 | item           | string       | null: false foreign_key: true|
 | item_text      | text         | null: false foreign_key: true|
 | user           | references   | null: false foreign_key: true|
-| category _id   | integer      | null: false |
-| item_status_id | integer      | null: false |
-| delivery_id    | integer      | null: false |
-| area_id        | integer      | null: false |
-| days_to_ship_id| integer      | null: false |
-| price          | integer      | null: false |
+| category _id   | integer      | null: false                  |
+| item_status_id | integer      | null: false                  |
+| delivery_id    | integer      | null: false                  |
+| area_id        | integer      | null: false                  |
+| days_to_ship_id| integer      | null: false                  |
+| price          | integer      | null: false                  |
 ## association
 - belongs_to :user
 - belongs_to :comments
+- has_one :markets
 
 ## comments テーブル
 
 | Column          | Type   | Options     |
-| --------        | ------ | ----------- |
+| --------------- | ------ | ----------- |
 | comments        | string | null: false |
 
 # association
@@ -71,7 +72,7 @@ Things you may want to cover:
 
 ## buy_markets テーブル
 | Column        | Type       | Options                      |
-| --------      | ------     | --------------------------   |
+| ------------- | ---------- | ---------------------------- |
 | market        | references | null: false foreign_key: true|
 | user          | references | null: false foreign_key: true|
 ## association
@@ -80,14 +81,15 @@ Things you may want to cover:
 - has_one :shopping_address
 
 ## shopping_address テーブル
-| Column        | Type       | Options     |
-| --------      | ------     | ----------- |
-| postal_code_id|  string    | null: false |
-| prefectures_id|  integer   | null: false |
-| municipality  |  string    | null: false |
-| address       |  string    | null: false |
-| phone_number  |  string    | null: false |
-| building_name |  string    |             |
-| purchase_history| string   | null: false |
+| Column           | Type       | Options                      |
+| ---------------- | ---------- | ---------------------------- |
+| postal_code_id   |  string    | null: false                  |
+| prefectures_id   |  integer   | null: false                  |
+| municipality     |  string    | null: false                  |
+| address          |  string    | null: false                  |
+| phone_number     |  string    | null: false                  |
+| building_name    |  string    |                              |
+| purchase_history | string     | null: false                  |
+| market           | reference  | null: false foreign_key: true|
 ## association 
 - belongs_to :buy_market
