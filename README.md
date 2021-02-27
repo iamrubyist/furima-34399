@@ -29,8 +29,12 @@ Things you may want to cover:
 | Column   | Type   | Options     |
 | -------- | ------ | ----------- |
 | name     | string | null: false |
-| email    | string | null: false |
-| password | string | null: false |
+| email    | unique:true | null: false |
+| password | encrypted_password | null: false |
+| last_name | string | null: false |
+| name_jap | string | null: false |
+| last_name_jap | string | null: false |
+| birthday | string | null: false |
 
 ## association
 - has_many :markets
@@ -42,7 +46,7 @@ Things you may want to cover:
 | --------     | ------ | ----------- |
 | item         | string | null: false |
 | item_text    | text   | null: false |
-
+| user_id      | text   | null: false |
 ## association
 - belongs_to :user
 - belongs_to :message
@@ -56,3 +60,8 @@ Things you may want to cover:
 # association
 - belongs_to :user
 - belongs_to market
+
+## buy_markets テーブル
+| Column          | Type   | Options     |
+| --------        | ------ | ----------- |
+| buy_markets        | string | null: false |
