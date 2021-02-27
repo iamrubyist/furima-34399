@@ -26,32 +26,40 @@ Things you may want to cover:
 
 ## users テーブル
 
-| Column   | Type   | Options     |
-| -------- | ------ | ----------- |
-| name     | string | null: false |
-| nick_name     | string | null: false |
-| last_name | string | null: false |
-| name_jap | string | null: false |
-| last_name_jap | string | null: false |
-| email     | string | null: false , unique: true |
-| encrypted_password |  string | null: false  |
-| birthday | date | null: false |
+| Column             | Type   | Options     |
+| --------           | ------ | ----------- |
+| name               | string | null: false |
+| nick_name          | string | null: false |
+| last_name          | string | null: false |
+| name_jap           | string | null: false |
+| last_name_jap      | string | null: false |
+| email              | string | null: false , unique: true |
+| encrypted_password | string | null: false |
+| birthday           | date   | null: false |
 
 ## association
 - has_many :markets
 - has_many :comments
 - has_many :buy_markets
+- has_many :shopping address
 
 ## markets　テーブル
 
-| Column       | Type   | Options     |
-| --------     | ------ | ----------- |
-| item         | string | null: false |
-| item_text    | text   | null: false |
-| user      | references   | null: false |
+| Column      | Type         | Options     |
+| --------    | ------       | ----------- |
+| item        | string       | null: false |
+| item_text   | text         | null: false |
+| user        | references   | null: false |
+| category    | string       | null: false |
+| item_status | string       | null: false |
+| delivery    | string       | null: false |
+| area        | string       | null: false |
+| days_to_ship| string       | null: false |
+| price       | string       | null: false |
 ## association
 - belongs_to :user
 - belongs_to :message
+- has_one :buy_market
 
 ## comments テーブル
 
@@ -64,8 +72,18 @@ Things you may want to cover:
 - belongs_to market
 
 ## buy_markets テーブル
-| Column          | Type   | Options     |
-| --------        | ------ | ----------- |
-
+| Column        | Type       | Options     |
+| --------      | ------     | ----------- |
+| buy_item      | references | null: false |
+| buy_item_user | references | null: false |
 ## association
 - belongs_to :user
+- belongs_to :market
+
+## shopping_address テーブル
+| Column        | Type       | Options     |
+| --------      | ------     | ----------- |
+|               | references | null: false |
+|               | references | null: false |
+## association 
+belongs_to :user
