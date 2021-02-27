@@ -29,16 +29,18 @@ Things you may want to cover:
 | Column   | Type   | Options     |
 | -------- | ------ | ----------- |
 | name     | string | null: false |
-| email    | unique:true | null: false |
-| password | encrypted_password | null: false |
+| nick_name     | string | null: false |
 | last_name | string | null: false |
 | name_jap | string | null: false |
 | last_name_jap | string | null: false |
-| birthday | string | null: false |
+| email     | string | null: false , unique: true |
+| password  |  string | | encrypted_password |
+| birthday | date | null: false |
 
 ## association
 - has_many :markets
 - has_many :comments
+- has_one :buy_markets
 
 ## markets　テーブル
 
@@ -46,7 +48,7 @@ Things you may want to cover:
 | --------     | ------ | ----------- |
 | item         | string | null: false |
 | item_text    | text   | null: false |
-| user_id      | text   | null: false |
+| user      | references   | null: false |
 ## association
 - belongs_to :user
 - belongs_to :message
@@ -64,4 +66,6 @@ Things you may want to cover:
 ## buy_markets テーブル
 | Column          | Type   | Options     |
 | --------        | ------ | ----------- |
-| buy_markets        | string | null: false |
+
+## association
+- belongs_to :user
