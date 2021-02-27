@@ -34,13 +34,13 @@ Things you may want to cover:
 | name_jap | string | null: false |
 | last_name_jap | string | null: false |
 | email     | string | null: false , unique: true |
-| password  |  string | | encrypted_password |
+| encrypted_password |  string | null: false  |
 | birthday | date | null: false |
 
 ## association
 - has_many :markets
 - has_many :comments
-- has_one :buy_markets
+- has_many :buy_markets
 
 ## markets　テーブル
 
