@@ -46,8 +46,8 @@ Things you may want to cover:
 
 | Column         | Type         | Options                      |
 | -------------- | ------------ | ---------------------------- |
-| item           | string       | null: false foreign_key: true|
-| item_text      | text         | null: false foreign_key: true|
+| name           | string       | null: false                  |
+| item_text      | text         | null: false                  |
 | user           | references   | null: false foreign_key: true|
 | category _id   | integer      | null: false                  |
 | item_status_id | integer      | null: false                  |
@@ -58,7 +58,7 @@ Things you may want to cover:
 ## association
 - belongs_to :user
 - belongs_to :comments
-- has_one :markets
+- has_one :buy_markets
 
 ## comments テーブル
 
@@ -90,6 +90,6 @@ Things you may want to cover:
 | phone_number     |  string    | null: false                  |
 | building_name    |  string    |                              |
 | purchase_history | string     | null: false                  |
-| market           | reference  | null: false foreign_key: true|
+| buy_market       | reference  | null: false foreign_key: true|
 ## association 
 - belongs_to :buy_market
