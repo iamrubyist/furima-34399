@@ -45,21 +45,20 @@ Things you may want to cover:
 
 ## markets　テーブル
 
-| Column      | Type         | Options     |
-| --------    | ------       | ----------- |
-| item        | string       | null: false |
-| item_text   | text         | null: false |
-| user        | references   | null: false |
-| category    | string       | null: false |
-| item_status | string       | null: false |
-| delivery    | string       | null: false |
-| area        | string       | null: false |
-| days_to_ship| string       | null: false |
-| price       | string       | null: false |
+| Column         | Type         | Options     |
+| -------------- | ------       | ----------- |
+| item           | string       | null: false |
+| item_text      | text         | null: false |
+| user           | references   | null: false |
+| category _id   | integer      | null: false |
+| item_status_id | integer      | null: false |
+| delivery_id    | integer      | null: false |
+| area_id        | integer      | null: false |
+| days_to_ship_id| integer      | null: false |
+| price          | integer      | null: false |
 ## association
 - belongs_to :user
-- belongs_to :message
-- has_one :buy_market
+- belongs_to :comments
 
 ## comments テーブル
 
@@ -79,11 +78,16 @@ Things you may want to cover:
 ## association
 - belongs_to :user
 - belongs_to :market
+- has_one :shopping_address
 
 ## shopping_address テーブル
 | Column        | Type       | Options     |
 | --------      | ------     | ----------- |
-|               | references | null: false |
-|               | references | null: false |
+| postal_code   | integer    | null: false |
+| prefectures   |  integer   | null: false |
+| municipality  |  integer   | null: false |
+| address       |  integer   | null: false |
+| phone_number  |  integer   | null: false |
+| building_name |  integer   | null: false |
 ## association 
-belongs_to :user
+- belongs_to :buy_market
