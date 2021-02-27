@@ -41,15 +41,14 @@ Things you may want to cover:
 - has_many :markets
 - has_many :comments
 - has_many :buy_markets
-- has_many :shopping address
 
 ## markets　テーブル
 
 | Column         | Type         | Options     |
 | -------------- | ------       | ----------- |
-| item           | string       | null: false |
-| item_text      | text         | null: false |
-| user           | references   | null: false |
+| item           | string       | null: false foreign_key: true|
+| item_text      | text         | null: false foreign_key: true|
+| user           | references   | null: false foreign_key: true|
 | category _id   | integer      | null: false |
 | item_status_id | integer      | null: false |
 | delivery_id    | integer      | null: false |
@@ -71,10 +70,10 @@ Things you may want to cover:
 - belongs_to market
 
 ## buy_markets テーブル
-| Column        | Type       | Options     |
-| --------      | ------     | ----------- |
-| buy_item      | references | null: false |
-| buy_item_user | references | null: false |
+| Column        | Type       | Options                      |
+| --------      | ------     | --------------------------   |
+| market        | references | null: false foreign_key: true|
+| user          | references | null: false foreign_key: true|
 ## association
 - belongs_to :user
 - belongs_to :market
@@ -83,11 +82,12 @@ Things you may want to cover:
 ## shopping_address テーブル
 | Column        | Type       | Options     |
 | --------      | ------     | ----------- |
-| postal_code   | integer    | null: false |
-| prefectures   |  integer   | null: false |
-| municipality  |  integer   | null: false |
-| address       |  integer   | null: false |
-| phone_number  |  integer   | null: false |
-| building_name |  integer   | null: false |
+| postal_code_id|  string    | null: false |
+| prefectures_id|  integer   | null: false |
+| municipality  |  string    | null: false |
+| address       |  string    | null: false |
+| phone_number  |  string    | null: false |
+| building_name |  string    |             |
+| purchase_history| string   | null: false |
 ## association 
 - belongs_to :buy_market
