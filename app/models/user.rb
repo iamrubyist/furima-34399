@@ -7,6 +7,7 @@ class User < ApplicationRecord
   validates :first_name_jp, presence: :true
   validates :last_name_jp,  presence: :true
   validates :birthday,      presence: :true
+  
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 end
