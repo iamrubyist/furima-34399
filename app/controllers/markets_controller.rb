@@ -1,3 +1,6 @@
 class MarketsController < ApplicationController
-  @markets = Market.all
+
+  def index
+  end
+  
 end
