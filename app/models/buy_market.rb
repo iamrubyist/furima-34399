@@ -1,2 +1,0 @@
-class BuyMarket < ApplicationRecord
-end
