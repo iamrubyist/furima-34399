@@ -8,6 +8,7 @@ class User < ApplicationRecord
   validates :first_name_jp, with: /\A[ァ-ヶー－]+\z/
   validates :last_name_jp, with: /\A[ァ-ヶー－]+\z/
   validates :birthday
+  validates :password, length: { maximum: 6 }, with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i
   end
   
   devise :database_authenticatable, :registerable,
