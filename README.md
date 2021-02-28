@@ -31,8 +31,8 @@ Things you may want to cover:
 | nickname           | string | null: false                |
 | first_name         | string | null: false                |
 | last_name          | string | null: false                |
-| first_name_jap     | string | null: false                |
-| last_name_jap      | string | null: false                |
+| first_name_jp      | string | null: false                |
+| last_name_jp       | string | null: false                |
 | email              | string | null: false , unique: true |
 | encrypted_password | string | null: false                |
 | birthday           | date   | null: false                |
