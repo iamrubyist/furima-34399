@@ -3,8 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   with_options presence: true do
   validates :name
-  validates :first_name
-  validates :last_name
+  validates :first_name, with: /\A[ぁ-んァ-ヶ一-龥]/+\z
+  validates :last_name, with: /\A[ぁ-んァ-ヶ一-龥]/+\z
   validates :first_name_jp
   validates :last_name_jp
   validates :birthday
