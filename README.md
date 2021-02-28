@@ -89,7 +89,6 @@ Things you may want to cover:
 | address          |  string    | null: false                  |
 | phone_number     |  string    | null: false                  |
 | building_name    |  string    |                              |
-| purchase_history | string     | null: false                  |
 | buy_market       | reference  | null: false foreign_key: true|
 ## association 
 - belongs_to :buy_market
