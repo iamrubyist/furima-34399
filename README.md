@@ -26,16 +26,16 @@ Things you may want to cover:
 
 ## users テーブル
 
-| Column             | Type   | Options     |
-| ------------------ | ------ | ----------- |
-| name               | string | null: false |
-| nick_name          | string | null: false |
-| last_name          | string | null: false |
-| name_jap           | string | null: false |
-| last_name_jap      | string | null: false |
+| Column             | Type   | Options                    |
+| ------------------ | ------ | -------------------------- |
+| nickname           | string | null: false                |
+| first_name         | string | null: false                |
+| last_name          | string | null: false                |
+| first_name_jap     | string | null: false                |
+| last_name_jap      | string | null: false                |
 | email              | string | null: false , unique: true |
-| encrypted_password | string | null: false |
-| birthday           | date   | null: false |
+| encrypted_password | string | null: false                |
+| birthday           | date   | null: false                |
 
 ## association
 - has_many :markets
