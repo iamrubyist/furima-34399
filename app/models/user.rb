@@ -5,8 +5,8 @@ class User < ApplicationRecord
   validates :name
   validates :first_name, with: /\A[ぁ-んァ-ヶ一-龥]/+\z
   validates :last_name, with: /\A[ぁ-んァ-ヶ一-龥]/+\z
-  validates :first_name_jp
-  validates :last_name_jp
+  validates :first_name_jp, with: /\A[ァ-ヶー－]+\z/
+  validates :last_name_jp, with: /\A[ァ-ヶー－]+\z/
   validates :birthday
   end
   
