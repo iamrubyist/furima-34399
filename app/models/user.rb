@@ -17,6 +17,9 @@ class User < ApplicationRecord
    validates :last_name_jp
   end
   
+  has_many :markets
+
+  
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 end
