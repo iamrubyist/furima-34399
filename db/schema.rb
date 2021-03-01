@@ -16,6 +16,11 @@ ActiveRecord::Schema.define(version: 2021_03_01_091629) do
     t.string "title", null: false
     t.text "text", null: false
     t.integer "genre_id", null: false
+    t.integer "category_id", null: false
+    t.integer "item_status", null: false
+    t.integer "delivery_id", null: false
+    t.integer "area_id", null: false
+    t.integer "days_to_ship_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -23,11 +28,6 @@ ActiveRecord::Schema.define(version: 2021_03_01_091629) do
   create_table "markets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "item_text", null: false
-    t.integer "category_id", null: false
-    t.integer "item_status", null: false
-    t.integer "delivery_id", null: false
-    t.integer "area_id", null: false
-    t.integer "days_to_ship_id", null: false
     t.integer "price", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
