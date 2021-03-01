@@ -15,4 +15,5 @@ class MarketsController < ApplicationController
 
  def market_params
   params.require(:market).permit(:image,:name,:item_status,:price,:user).merge(user_id: current_user.id)
+ end
 end
