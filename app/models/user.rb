@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   with_options presence: true do
    validates :name
-   validates :password, length: { maximum: 6 }, with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i
+   validates :password, length: { maximum: 6 }, format: {with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i} 
   end
 
   with_options presence: true, format: { with: /\A[ぁ-んァ-ヶ一-龥々]+\z/ } do
