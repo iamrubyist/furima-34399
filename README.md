@@ -48,7 +48,7 @@ Things you may want to cover:
 | --------------- | ------------ | ---------------------------- |
 | name            | string       | null: false                  |
 | item_text       | text         | null: false                  |
-| category _id    | integer      | null: false                  |
+| category_id     | integer      | null: false                  |
 | item_status_id  | integer      | null: false                  |
 | delivery_id     | integer      | null: false                  |
 | area_id         | integer      | null: false                  |
