@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+  get 'articles/index'
+  get 'articles/new'
   devise_for :users
-  root to: "markets#index"
-  resources :markets, only: :index
+  root to: 'articles#index'
+  resources :articles
 end
