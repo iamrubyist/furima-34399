@@ -4,5 +4,5 @@ self.data = [
   {id: 2, name: '送料込み（出品者負担}',
 ]
 include ActiveHash::Associations
-has_many :articles
+has_many :market
 end

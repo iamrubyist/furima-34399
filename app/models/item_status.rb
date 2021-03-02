@@ -9,5 +9,5 @@ class Prefecture < ActiveHash::Base
     {id: 6, name: '全体的に状態が悪い'}
   ]
   include ActiveHash::Associations
-  has_many :articles
+  has_many :market
 end

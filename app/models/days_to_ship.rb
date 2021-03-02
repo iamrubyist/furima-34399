@@ -6,5 +6,5 @@ class Prefecture < ActiveHash::Base
     {id: 3, name: '4日~7日で発送'}
   ]
   include ActiveHash::Associations
-  has_many :articles
+  has_many :market
 end
