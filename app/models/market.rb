@@ -1,5 +1,4 @@
 class Market < ApplicationRecord
-  extend ActiveHash::Associations::ActiveRecordExtensions
   with_options presence: true do
     validates :name 
     validates :item_text
@@ -11,10 +10,8 @@ class Market < ApplicationRecord
     validates :price
     validates :user
   end 
-  validates :title, :text, presence: true
-
-  validates :genre_id, numericality: { other_than: 0 } 
-  
+ 
+  extend ActiveHash::Associations::ActiveRecordExtensions
   has_one_attached :image
   belongs_to :user
   belongs_to :category
@@ -22,4 +19,9 @@ class Market < ApplicationRecord
   belongs_to :delivery
   belongs_to :area 
   belongs_to :days_to_ship
+  
+  validates :title, :text, presence: true
+
+  validates :genre_id, numericality: { other_than: 0 } 
+
 end
