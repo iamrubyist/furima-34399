@@ -1,6 +1,6 @@
 class Article < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :genre
+  belongs_to :area
   has_one :user
 
   validates :title, :text, presence: true
