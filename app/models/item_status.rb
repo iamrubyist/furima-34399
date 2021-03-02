@@ -1,4 +1,4 @@
-class Item_status < ActiveHash::Base
+class ItemStatus < ActiveHash::Base
   self.data = [
     {id: 0, name: '--' },
     {id: 1, name: '新品・未使用'},
@@ -9,5 +9,5 @@ class Item_status < ActiveHash::Base
     {id: 6, name: '全体的に状態が悪い'},
   ]
   include ActiveHash::Associations
-  has_many :market
+  has_many :markets
 end

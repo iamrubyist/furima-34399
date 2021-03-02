@@ -20,8 +20,6 @@ class Market < ApplicationRecord
   belongs_to :area 
   belongs_to :days_to_ship
 
-  validates :title, :text, presence: true
-
-  validates :genre_id, numericality: { other_than: 0 } 
+  validates :category_id, numericality: { other_than: 0 } 
 
 end
