@@ -8,6 +8,7 @@ class Market < ApplicationRecord
     validates :area_id
     validates :days_to_ship_id
     validates :price
+    validates :image
   end 
  
   extend ActiveHash::Associations::ActiveRecordExtensions

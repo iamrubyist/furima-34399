@@ -57,10 +57,10 @@ RSpec.describe Market, type: :model do
       @market.valid?
       expect(@market.errors.full_messages).to include("Price must be an integer")
     end
-    it '商品画像を1枚つけることが必須である' do
-      @market.price = 'public/images/test_image.png'
+    it '商品画像が空では出品できない' do
+      @market.image = nil
       @market.valid?
-      expect(@market.errors.full_messages).to include("Price is not a number", "Price is not a number")
+      expect(@market.errors.full_messages).to include("Image can't be blank")
     end
     it '商品価格が半角英数字混合では出品できない' do
       @market.price = '1000abc'
