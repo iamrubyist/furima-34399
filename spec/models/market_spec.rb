@@ -47,5 +47,10 @@ RSpec.describe Market, type: :model do
       @market.valid?
       expect(@market.errors.full_messages).to include("Price can't be blank")
     end
+    #販売価格は、¥300~¥9,999,999の間のみ保存可能であること
+    #販売価格は半角数字のみ保存可能であること
+    #エラーハンドリングができていること（入力に問題がある状態で「出品する」ボタンが押された場合、情報は保存されず、出品ページに戻りエラーメッセージが表示されること）
+    #エラーハンドリングの際、1つのエラーに対して同じエラーメッセージが重複して表示されないこと
+    #商品画像を1枚つけることが必須であること
  end
 end
