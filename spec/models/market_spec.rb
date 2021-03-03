@@ -52,14 +52,14 @@ RSpec.describe Market, type: :model do
       expect(@market.errors.full_messages).to include("Price can't be blank")
     end
     it '商品価格が299円以下では出品できない' do
-      @market.price = '299'
+      @market.price = 299
       @market.valid?
       expect(@market.errors.full_messages).to include("Price must be greater than or equal to 300")
     end
     it '商品価格が10_000_000円以上では出品できない' do
-      @market.price = '10_000_000'
+      @market.price = 10_000_000
       @market.valid?
-      expect(@market.errors.full_messages).to include("Price must be an integer")
+      expect(@market.errors.full_messages).to include("Price must be less than or equal to 9999999")
     end
     it '商品画像が空では出品できない' do
       @market.image = nil
@@ -82,27 +82,27 @@ RSpec.describe Market, type: :model do
       expect(@market.errors.full_messages).to include("Price is not a number", "Price is not a number")
     end
     it 'category_idが0の場合出品できない' do
-      @market.category_id = '0'
+      @market.category_id = 0
       @market.valid?
       expect(@market.errors.full_messages).to include("Category must be other than 0")
     end
     it 'item_status_idが0の場合出品できない' do
-      @market.item_status_id = '0'
+      @market.item_status_id = 0
       @market.valid?
       expect(@market.errors.full_messages).to include("Item status must be other than 0")
     end
     it 'delivery_idが0の場合出品できない' do
-      @market.delivery_id = '0'
+      @market.delivery_id = 0
       @market.valid?
       expect(@market.errors.full_messages).to include("Delivery must be other than 0")
     end
     it 'area_idが0の場合出品できない' do
-      @market.area_id = '0'
+      @market.area_id = 0
       @market.valid?
       expect(@market.errors.full_messages).to include("Area must be other than 0")
     end
     it 'days_to_ship_idが0の場合出品できない' do
-      @market.days_to_ship_id = '0'
+      @market.days_to_ship_id = 0
       @market.valid?
       expect(@market.errors.full_messages).to include("Days to ship must be other than 0")
     end
