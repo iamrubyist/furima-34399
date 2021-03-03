@@ -29,7 +29,7 @@ class Market < ApplicationRecord
   end
 
   validates :price, numericality: { only_integer: true }
-  validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 10_000_000 }
+  validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
  
   has_one_attached :image
   def was_attached?
