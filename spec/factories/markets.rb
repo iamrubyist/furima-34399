@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :market do
+    association :user
     name                  {'test'}
     item_text             {'これは限定商品です'}
     category_id           {1}

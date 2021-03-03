@@ -30,11 +30,14 @@ class Market < ApplicationRecord
 
   validates :price, format: { with: /\A[0-9]+\z/ }
   validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 10_000_000 }
-  #商品価格が半角英数字混合では出品できない
-  validates :price, format: { with: /\A[a-zA-Z0-9]+\z/, /\A[a-z0-9]+\z/i}
-  #商品価格が半角英字のみでは出品できない
-  validates :price, format: { with: /\A[a-zA-Z]+\z/, /\A[a-z]+\z/i}
-  #商品価格が全角文字では出品できない
+  validates :price, format: { with: /\A[a-zA-Z0-9]+\z/}
+  validates :price, format: { with: /\A[a-zA-Z]+\z/}
   validates :price, format: { with:  /\A[ぁ-んァ-ヶ一-龥々]+\z/}
  
+  has_one_attached :image
+  def was_attached?
+    self.image.attached?
+  end
+
+
 end
