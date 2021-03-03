@@ -24,5 +24,7 @@ class Market < ApplicationRecord
   validates :item_status_id,  numericality: { other_than: 0 } 
   validates :delivery_id,     numericality: { other_than: 0 } 
   validates :area_id,         numericality: { other_than: 0 } 
-  validates :days_to_ship_id, numericality: { other_than: 0 } 
+  validates :days_to_ship_id, numericality: { other_than: 0 }
+  
+  validates :price, format: { with: /\A[0-9]+\z/ }
 end
