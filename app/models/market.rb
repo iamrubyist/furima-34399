@@ -28,11 +28,8 @@ class Market < ApplicationRecord
   validates :days_to_ship_id
   end
 
-  validates :price, format: { with: /\A[0-9]+\z/ }
+  validates :price, numericality: { only_integer: true }
   validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 10_000_000 }
-  validates :price, format: { with: /\A[a-zA-Z0-9]+\z/}
-  validates :price, format: { with: /\A[a-zA-Z]+\z/}
-  validates :price, format: { with:  /\A[ぁ-んァ-ヶ一-龥々]+\z/}
  
   has_one_attached :image
   def was_attached?
