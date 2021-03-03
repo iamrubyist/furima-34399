@@ -1,6 +1,7 @@
 class MarketsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   def index
+    @markets = Market.all
   end
   
   def new
