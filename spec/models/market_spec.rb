@@ -80,27 +80,27 @@ RSpec.describe Market, type: :model do
     it 'category_idが0の場合出品できない' do
       @market.category_id = '0'
       @market.valid?
-      expect(@market.errors.full_messages).to include("Price must be greater than or equal to 300")
+      expect(@market.errors.full_messages).to include("Category must be other than 0")
     end
     it 'item_status_idが0の場合出品できない' do
       @market.item_status_id = '0'
       @market.valid?
-      expect(@market.errors.full_messages).to include("Price must be greater than or equal to 300")
+      expect(@market.errors.full_messages).to include("Item status must be other than 0")
     end
     it 'delivery_idが0の場合出品できない' do
       @market.delivery_id = '0'
       @market.valid?
-      expect(@market.errors.full_messages).to include("Price must be greater than or equal to 300")
+      expect(@market.errors.full_messages).to include("Delivery must be other than 0")
     end
     it 'area_idが0の場合出品できない' do
       @market.area_id = '0'
       @market.valid?
-      expect(@market.errors.full_messages).to include("Price must be greater than or equal to 300")
+      expect(@market.errors.full_messages).to include("Area must be other than 0")
     end
     it 'days_to_ship_idが0の場合出品できない' do
       @market.days_to_ship_id = '0'
       @market.valid?
-      expect(@market.errors.full_messages).to include("Price must be greater than or equal to 300")
+      expect(@market.errors.full_messages).to include("Days to ship must be other than 0")
     end
  end
 end
