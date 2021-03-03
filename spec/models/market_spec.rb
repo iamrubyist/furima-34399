@@ -77,8 +77,28 @@ RSpec.describe Market, type: :model do
       @market.valid?
       expect(@market.errors.full_messages).to include("Price is not a number", "Price is not a number")
     end
-    it '〇〇_idが0の場合出品できない' do
-      @market.price = '0'
+    it 'category_idが0の場合出品できない' do
+      @market.category_id = '0'
+      @market.valid?
+      expect(@market.errors.full_messages).to include("Price must be greater than or equal to 300")
+    end
+    it 'item_status_idが0の場合出品できない' do
+      @market.item_status_id = '0'
+      @market.valid?
+      expect(@market.errors.full_messages).to include("Price must be greater than or equal to 300")
+    end
+    it 'delivery_idが0の場合出品できない' do
+      @market.delivery_id = '0'
+      @market.valid?
+      expect(@market.errors.full_messages).to include("Price must be greater than or equal to 300")
+    end
+    it 'area_idが0の場合出品できない' do
+      @market.area_id = '0'
+      @market.valid?
+      expect(@market.errors.full_messages).to include("Price must be greater than or equal to 300")
+    end
+    it 'days_to_ship_idが0の場合出品できない' do
+      @market.days_to_ship_id = '0'
       @market.valid?
       expect(@market.errors.full_messages).to include("Price must be greater than or equal to 300")
     end
