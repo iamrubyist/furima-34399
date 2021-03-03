@@ -4,9 +4,13 @@ RSpec.describe Market, type: :model do
     before do
       @market = FactoryBot.build(:market)
     end
-    it "全ての情報が正しく入力されており、商品出品ができること" do
-      expect(@market).to be_valid
+    context 'ユーザ新規登録ができる時' do
+      it "全ての情報が正しく入力されており、商品出品ができること" do
+        expect(@market).to be_valid
+      end
     end
+
+    context 'ユーザ新規登録ができない時' do
     it "商品出品が空では保存できない" do
       @market.name = ''
       @market.valid?
@@ -101,6 +105,7 @@ RSpec.describe Market, type: :model do
       @market.days_to_ship_id = '0'
       @market.valid?
       expect(@market.errors.full_messages).to include("Days to ship must be other than 0")
+    end
     end
  end
 end
