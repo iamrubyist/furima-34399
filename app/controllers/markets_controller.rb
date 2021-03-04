@@ -29,8 +29,17 @@ class MarketsController < ApplicationController
       render :edit
     end
   end
+
   def show
     @market = Market.find(params[:id])
+  end
+
+  def destroy
+    if @market.destroy
+      redirect_to root_path
+    else
+      redirect_to root_path
+    end
   end
  private
 
