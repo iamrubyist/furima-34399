@@ -156,7 +156,6 @@
       <% end %>
 
       <% if @markets.length == 0 %>
-      <% if @markets[0] != nil %>
       <li class='list'>
         <%= link_to '#' do %>
         <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "item-img" %>
@@ -174,7 +173,6 @@
         </div>
         <% end %>
       </li>
-      <% end %>
       <% end %>
     </ul>
   </div>
