@@ -24,7 +24,7 @@ class MarketsController < ApplicationController
 
   def update
     if @market.update(market_params)
-      redirect_to prototype_path(@market)
+      redirect_to market_path(@market)
     else
       render :edit
     end
