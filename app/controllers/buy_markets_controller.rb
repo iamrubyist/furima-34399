@@ -1,0 +1,2 @@
+class BuyMarketsController < ApplicationController
+end

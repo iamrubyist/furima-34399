@@ -19,6 +19,6 @@ class PurchaseForm
       address: address,
       phone_number: phone_number,
       buy_market: buy_market)
-    Adderss.create(address: address)
+    BuyMarket.create(address: address)
   end
 end
