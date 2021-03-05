@@ -8,7 +8,7 @@ class BuyMarketsController < ApplicationController
 
   def create
     @buy_market = BuyMarket.create(buy_market_params)
-    Purchase.create(purchases_params)
+    @purchase = Purchase.create(purchases_params)
     redirect_to root_path
   end
 
