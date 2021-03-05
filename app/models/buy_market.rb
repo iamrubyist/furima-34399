@@ -1,0 +1,2 @@
+class BuyMarket < ApplicationRecord
+end
