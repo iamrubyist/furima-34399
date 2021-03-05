@@ -78,9 +78,9 @@ Things you may want to cover:
 ## association
 - belongs_to :user
 - belongs_to :market
-- has_one :shopping_address
+- has_one :purchase
 
-## shopping_address テーブル
+## purchase テーブル
 | Column           | Type       | Options                       |
 | ---------------- | ---------- | ----------------------------- |
 | postal_code_id   |  string    | null: false                   |
