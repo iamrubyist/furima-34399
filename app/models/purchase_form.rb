@@ -12,13 +12,13 @@ class PurchaseForm
   end
  
   def save
-    BuyMarket.create(user_id: user_id)
+    buy_market = BuyMarket.create(user_id: user_id, buy_market_id: buy_market_id)
     Purchase.create(
       postal_code_id: postal_code_id, 
       prefectures: prefectures,
       municipality: municipality,
       address: address,
       phone_number: phone_number,
-      buy_market: buy_market)
+      buy_market_id: buy_market.id)
   end
 end
