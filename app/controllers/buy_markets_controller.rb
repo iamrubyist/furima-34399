@@ -1,7 +1,7 @@
 class BuyMarketsController < ApplicationController
 
   def index
-    @purchase_forms = PurchaseForm.new(purchases_params)
+    @purchase = PurchaseForm.new
     @market = Market.find(params[:market_id])
   end
 
@@ -9,6 +9,7 @@ class BuyMarketsController < ApplicationController
   end
 
   def create 
+# binding.pry
     @market = Market.find(params[:market_id])
     @purchase_form = PurchaseForm.new(purchases_params)
     if @purchase_form.valid?
@@ -21,6 +22,6 @@ class BuyMarketsController < ApplicationController
   private
 
   def purchases_params
-    params.permit(:postal_code_id,:prefectures,:municipality,:address,:phone_number,:buy_market).merge(user_id: current_user.id)
+    params.permit(:postal_code_id,:prefectures,:municipality,:address,:phone_number,:building_name,:market_id).merge(user_id: current_user.id)
   end
 end
