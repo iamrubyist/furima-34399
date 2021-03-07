@@ -42,7 +42,7 @@ Things you may want to cover:
 - has_many :comments
 - has_many :buy_markets
 
-## markets　テーブル
+## markets テーブル
 
 | Column          | Type         | Options                      |
 | --------------- | ------------ | ---------------------------- |

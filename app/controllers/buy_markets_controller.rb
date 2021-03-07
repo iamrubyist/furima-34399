@@ -14,7 +14,7 @@ class BuyMarketsController < ApplicationController
       @purchase_form.save
       redirect_to root_path
     else
-      render :new
+      render :index
     end
   end
   private
