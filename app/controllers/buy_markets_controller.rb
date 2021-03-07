@@ -1,6 +1,8 @@
 class BuyMarketsController < ApplicationController
 
   def index
+    @purchase_forms = PurchaseForm.new(purchases_params)
+    @market = Market.find(params[:market_id])
   end
 
   def new
