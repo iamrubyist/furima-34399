@@ -9,6 +9,7 @@ class BuyMarketsController < ApplicationController
   end
 
   def create 
+    @market = Market.find(params[:market_id])
     @purchase_form = PurchaseForm.new(purchases_params)
     if @purchase_form.valid?
       @purchase_form.save
