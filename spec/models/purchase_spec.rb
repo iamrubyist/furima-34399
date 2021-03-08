@@ -5,23 +5,40 @@ RSpec.describe PurchaseForm, type: :model do
       @market = FactoryBot.build(:buy_market)
     end
     context 'ログイン状態の出品者以外のユーザーのみ、必要な情報を適切に入力すると、商品の購入ができること' do
-      #クレジットカード決済ができること
+      it "ログイン状態の出品者以外のユーザーのみ、必要な情報を適切に入力すると、商品の購入ができること" do
+        expect(@purchase).to be_valid
     end
     
 
     context 'ログイン状態の出品者以外のユーザーのみ、必要な情報を適切に入力すると、商品の購入ができないこと' do
-      #郵便番号が空では登録できない
-      #都道府県が空では登録できない
-      #地区町村が空では登録できない
-      #番地が空では登録できない
-      #電話番号が空では登録できない
-      #クレジットカード情報は必須であり、正しいクレジットカードの情報で無いときは決済できないこと
-      #配送先の情報として、郵便番号・都道府県・市区町村・番地・電話番号が必須であること
+      it "郵便番号が空では登録できない" do
+        @purchase.postal_code_id = ''
+        @purchase.valid?
+        expect(@market.errors.full_messages).to include("Postal_code_id can't be blank")
+      end
+      it "都道府県が空では登録できない" do
+        @purchase.prefectures = ''
+        @purchase.valid?
+        expect(@market.errors.full_messages).to include("Prefectures can't be blank")
+      end
+      it "地区町村が空では登録できない" do
+        @purchase.municipality = ''
+        @purchase.valid?
+        expect(@market.errors.full_messages).to include("Municipality can't be blank")
+      end
+      it "番地が空では登録できない" do
+        @purchase.address = ''
+        @purchase.valid?
+        expect(@market.errors.full_messages).to include("Address can't be blank")
+      end
+      it "電話番号が空では登録できない" do
+        @purchase.phone_number = ''
+        @purchase.valid?
+        expect(@market.errors.full_messages).to include("Phone_number can't be blank")
+      end
+
       #郵便番号の保存にはハイフンが必要であること（123-4567となる）
       #電話番号は11桁以内の数値のみ保存可能なこと（09012345678となる）
-      #エラーハンドリングができていること（入力に問題がある状態で「購入」ボタンが押された場合、情報は受け入れられず、購入ページでエラーメッセージが表示されること）
-      #エラーハンドリングの際、1つエラーに対して同じエラーメッセージが重複して表示されないこと
-      #
     end
   end
 end
