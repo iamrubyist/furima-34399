@@ -1,14 +1,14 @@
 class PurchaseForm
   include ActiveModel::Model
 
-  attr_accessor :postal_code_id, :prefectures, :municipality, :address,:phone_number,:building_name,:market_id,:user_id
-  
+  attr_accessor :postal_code_id, :prefectures, :municipality, :address,:phone_number,:building_name,:market_id,:user_id,:token
   with_options presence: true do
     validates :postal_code_id
     validates :prefectures
     validates :municipality
     validates :address
     validates :phone_number
+    validates :token
   end
     validates :phone_number, numericality: true
     validates :phone_number, length: {maximum: 11}

@@ -8,6 +8,9 @@ RSpec.describe PurchaseForm, type: :model do
       it "ログイン状態の出品者以外のユーザーのみ、必要な情報を適切に入力すると、商品の購入ができること" do
         expect(@purchase).to be_valid
       end
+      it "priceとtokenがあれば保存ができること" do
+        expect(@purchase).to be_valid
+      end
     end
 
     
@@ -52,6 +55,11 @@ RSpec.describe PurchaseForm, type: :model do
         @purchase.postal_code_id = '1112222'
         @purchase.valid?
         expect(@purchase.errors.full_messages).to include("Postal code is invalid")
+      end
+      it "tokenが空では登録できないこと" do
+        @purchase.token = nil
+        @purchase.valid?
+        expect(@purchase.errors.full_messages).to include("Token can't be blank")
       end
     end
   end
