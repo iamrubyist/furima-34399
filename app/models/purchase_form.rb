@@ -15,8 +15,8 @@ class PurchaseForm
     validates :phone_number, format: {with: /\A\d{10,11}\z/}
     validates :postal_code_id, format: {with: /\A\d{3}[-]\d{4}\z/} 
   def save
-    buy_market = BuyMarket.create!(user_id: user_id, market_id: market_id)
-    Purchase.create!(
+    buy_market = BuyMarket.create(user_id: user_id, market_id: market_id)
+    Purchase.create(
       postal_code_id: postal_code_id, 
       prefectures: prefectures,
       municipality: municipality,
