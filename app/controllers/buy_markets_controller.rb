@@ -2,16 +2,14 @@ class BuyMarketsController < ApplicationController
   before_action :set_buy, only: [:index, :create]
 
   def index
-  end
-
-  def new
+    @purchase = PurchaseForm.new
   end
 
   def create 
-    @purchase_form = PurchaseForm.new(purchases_params)
-    if @purchase_form.valid?
+    @purchase = PurchaseForm.new(purchases_params)
+    if @purchase.valid?
       pay_item
-      @purchase_form.save
+      @purchase.save
       redirect_to root_path
     else
       render :index
@@ -24,7 +22,6 @@ class BuyMarketsController < ApplicationController
   end
 
   def set_buy
-    @purchase = PurchaseForm.new
     @market = Market.find(params[:market_id])
   end
 
