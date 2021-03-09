@@ -9,6 +9,8 @@ class PurchaseForm
     validates :address
     validates :phone_number
     validates :token
+    validates :market_id
+    validates :user_id
   end
     validates :phone_number, numericality: true
     validates :phone_number, length: {maximum: 11}
