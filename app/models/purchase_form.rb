@@ -12,11 +12,13 @@ class PurchaseForm
     validates :market_id
     validates :user_id
   end
+  
     validates :phone_number, numericality: true
     validates :phone_number, length: {maximum: 11}
     validates :phone_number, format: {with: /\A\d{10,11}\z/}
     validates :postal_code_id, format: {with: /\A\d{3}[-]\d{4}\z/} 
     validates :prefectures, numericality: { other_than: 0 }
+
   def save
     buy_market = BuyMarket.create(user_id: user_id, market_id: market_id)
     Purchase.create(

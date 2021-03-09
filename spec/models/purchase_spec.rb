@@ -2,13 +2,21 @@ require 'rails_helper'
 RSpec.describe PurchaseForm, type: :model do
   describe "商品購入機能" do
     before do
+      @user = FactoryBot.create(:user, email: 'sample@sample')
+      @market = FactoryBot.create(:market)
       @purchase = FactoryBot.build(:purchase_form)
+      @purchase.user_id = @user.id
+      @purchase.market_id = @market.id
+      sleep(1)
     end
     context 'ログイン状態の出品者以外のユーザーのみ、必要な情報を適切に入力すると、商品の購入ができること' do
       it "ログイン状態の出品者以外のユーザーのみ、必要な情報を適切に入力すると、商品の購入ができること" do
         expect(@purchase).to be_valid
       end
       it "priceとtokenがあれば保存ができること" do
+        expect(@purchase).to be_valid
+      end
+      it "建物名が抜けていても登録できること" do
         expect(@purchase).to be_valid
       end
     end
@@ -60,6 +68,26 @@ RSpec.describe PurchaseForm, type: :model do
         @purchase.token = nil
         @purchase.valid?
         expect(@purchase.errors.full_messages).to include("Token can't be blank")
+      end
+      it "(---)以外でないと登録できないこと" do
+        @purchase.prefectures = "0"
+        @purchase.valid?
+        expect(@purchase.errors.full_messages).to include( "Prefectures must be other than 0")
+      end
+      it "英数混合では登録できないこと" do
+        @purchase.phone_number = "080abcd1234"
+        @purchase.valid?
+        expect(@purchase.errors.full_messages).to include("Phone number is not a number")
+      end
+      it "market_idが空では登録できないこと" do
+        @purchase.market_id = " "
+        @purchase.valid?
+        expect(@purchase.errors.full_messages).to include("Market can't be blank")
+      end
+      it "user_idが空では登録できないこと" do
+        @purchase.user_id = " "
+        @purchase.valid?
+        expect(@purchase.errors.full_messages).to include("User can't be blank")
       end
     end
   end
