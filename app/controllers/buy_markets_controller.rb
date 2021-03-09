@@ -1,6 +1,7 @@
 class BuyMarketsController < ApplicationController
   before_action :set_buy, only: [:index, :create]
-
+  before_action :authenticate_user!
+  before_action :move_to_index
   def index
     @purchase = PurchaseForm.new
   end
@@ -33,4 +34,7 @@ class BuyMarketsController < ApplicationController
       currency: 'jpy'
     )
   end
+  def move_to_index
+    redirect_to root_path if current_user == @market.user
+   end
 end
