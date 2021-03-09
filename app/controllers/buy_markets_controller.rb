@@ -20,7 +20,7 @@ class BuyMarketsController < ApplicationController
   private
 
   def purchases_params
-    params.require(:purchase_form).permit(:postal_code_id,:prefectures,:municipality,:address,:phone_number,:building_name,:market_id).merge(user_id: current_user.id, token: params[:token])
+    params.require(:purchase_form).permit(:postal_code_id,:prefectures,:municipality,:address,:phone_number,:building_name,:market_id).merge(user_id: current_user.id, token: params[:token],market_id:params[:market_id])
   end
 
   def set_buy
@@ -29,9 +29,9 @@ class BuyMarketsController < ApplicationController
   end
 
   def pay_item
-    Payjp.api_key = "sk_test_0f8d56f8f32156056d6480db" 
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     Payjp::Charge.create(
-      amount: purchases_params[:price],
+      amount: @market.price,
       card: purchases_params[:token],
       currency: 'jpy'
     )
