@@ -70,7 +70,7 @@ RSpec.describe PurchaseForm, type: :model do
         expect(@purchase.errors.full_messages).to include("Token can't be blank")
       end
       it "(---)以外でないと登録できないこと" do
-        @purchase.prefectures = "0"
+        @purchase.prefectures = 0
         @purchase.valid?
         expect(@purchase.errors.full_messages).to include( "Prefectures must be other than 0")
       end
