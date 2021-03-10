@@ -53,7 +53,7 @@ RSpec.describe PurchaseForm, type: :model do
         expect(@purchase.errors.full_messages).to include("Phone number is too long (maximum is 11 characters)")
       end
       it "電話番号はハイフン無し(10-11桁)の数字のみ保存可能なこと" do
-        @purchase.phone_number = '090111122223333'
+        @purchase.phone_number = '090-1111-2222'
         @purchase.valid?
         expect(@purchase.errors.full_messages).to include("Phone number is too long (maximum is 11 characters)")
       end
