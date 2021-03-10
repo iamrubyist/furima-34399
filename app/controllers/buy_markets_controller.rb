@@ -35,6 +35,6 @@ class BuyMarketsController < ApplicationController
     )
   end
   def move_to_index
-    redirect_to root_path if current_user == @market.user
+    redirect_to root_path if current_user == @market.user || @market.buy_market
    end
 end
