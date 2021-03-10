@@ -19,6 +19,7 @@ class Market < ApplicationRecord
   belongs_to :delivery
   belongs_to :area 
   belongs_to :days_to_ship
+  has_one :buy_market
 
   with_options numericality: { other_than: 0 } do
   validates :category_id 

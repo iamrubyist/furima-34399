@@ -18,6 +18,7 @@ class User < ApplicationRecord
   end
   
   has_many :markets
+  has_many :buy_markets
 
   
   devise :database_authenticatable, :registerable,
