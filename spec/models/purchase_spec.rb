@@ -13,10 +13,8 @@ RSpec.describe PurchaseForm, type: :model do
       it "ログイン状態の出品者以外のユーザーのみ、必要な情報を適切に入力すると、商品の購入ができること" do
         expect(@purchase).to be_valid
       end
-      it "priceとtokenがあれば保存ができること" do
-        expect(@purchase).to be_valid
-      end
       it "建物名が抜けていても登録できること" do
+        @purchase.building_name = ''
         expect(@purchase).to be_valid
       end
     end
